@@ -15,6 +15,6 @@ class Coins extends Model
      * @var array
      */
     protected $fillable = [
-        'name', 'abbrev', 'fixed_value','image',
+        'name', 'abbrev', 'fixed_value','image','wallet_address'
     ];
 }

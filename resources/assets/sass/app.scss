@@ -5,8 +5,14 @@
 // Variables
 @import 'variables';
 
+
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
+//@import '~materialize-css/sass/materialize';
+.body{
+	
+  background-color: #fff !important;
+}
 
 .navbar-laravel {
   background-color: #fff;

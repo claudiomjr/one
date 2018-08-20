@@ -14,7 +14,7 @@
 Route::get('/', function () {
     return view('welcome');
 });
-Route::group(['prefix'=>'partners','as'=>'partners.'], function(){
+Route::group(['prefix'=>'partners','as'=>'partners.','middleware'=>'admin'], function(){
     Route::get('/', ['as' => 'index', 'uses' => 'CoinsController@index']);
     Route::get('index', ['as' => 'index', 'uses' => 'CoinsController@index']);
     Route::get('donate', ['as' => 'donate', 'uses' => 'CoinsController@donate']);

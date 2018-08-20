@@ -65,7 +65,7 @@ body {
 /*buttons*/
 #msform .action-button {
     width: 100px;
-    background: #0c2f45;
+    background: #373c42;
     font-weight: bold;
     color: white;
     border: 0 none;
@@ -75,7 +75,7 @@ body {
     margin: 10px 5px;
 }
 #msform .action-button:hover, #msform .action-button:focus {
-    box-shadow: 0 0 0 2px white, 0 0 0 3px #0c2f45;
+    box-shadow: 0 0 0 2px white, 0 0 0 3px #373c42;
 }
 /*headings*/
 .fs-title {
@@ -138,7 +138,7 @@ body {
     color: #cccccc;
     text-transform: uppercase;
     font-size: 9px;
-    width: 25.0%;
+    width: 33.33%;
     float: left;
     position: relative;
 }
@@ -172,7 +172,7 @@ body {
 /*marking active/completed steps green*/
 /*The number of the step and the connector before it = green*/
 #progressbar li.active:before,  #progressbar li.active:after{
-    background: #0c2f45;
+    background: #373c42;
     color: white;
 }
 
@@ -188,7 +188,6 @@ body {
         <li class="active"></li>
         <li></li>
         <li></li>
-        <li></li>
     </ul>
     <!-- fieldsets -->
     <fieldset>
@@ -202,6 +201,7 @@ body {
                  id="{{ $coin->abbrev }}" style="float: left">
                     <a href="#" id="coin-selected"><img src="{{ $coin->image }}" width="50" height="50"/>
                         <input type="hidden" id="coin-value-hidden" value="{{ $coin->fixed_value}}">
+                        <input type="hidden" id="coin-wallet-address-hidden" value="{{ $coin->wallet_address}}">
                     <span class="fs-subtitle" value="">{{ $coin->fixed_value}}</span>
                     </a>
                 </li>
@@ -218,7 +218,10 @@ body {
     <fieldset>
         <h2 class="fs-title"></h2>
         <h3 class="fs-subtitle"></h3>
-        
+        <label for="fs-2-wallet-address" class="fs-title">Wallet</label>
+        <input type="number" name="fs-2-wallet-address" id="fs-2-wallet-address" disabled required value="">
+        <label for="fs-2-wallet-address" class="fs-title">Deposit ID</label>
+        <input type="text" name="fs-2-deposit_id" id="fs-2-wallet-address" required value=""/>
         <input type="button" name="previous" class="previous action-button" value="Previous" />
         <input type="button" name="next" class="next action-button" value="Next" />
     </fieldset>
@@ -227,14 +230,14 @@ body {
         <h3 class="fs-subtitle"></h3>
         <input type="button" name="previous" class="previous action-button" value="Previous" />
         <input type="submit" name="submit" class="submit action-button" value="Submit" />
-    </fieldset>
+<!--     </fieldset>
         <fieldset>
         <h2 class="fs-title"></h2>
         <h3 class="fs-subtitle"></h3>" />
         <textarea name="address" placeholder="Address"></textarea>
         <input type="button" name="previous" class="previous action-button" value="Previous" />
         <input type="submit" name="submit" class="submit action-button" value="Submit" />
-    </fieldset>
+    </fieldset> -->
 </form>
 <!-- jQuery -->
 <script src="http://thecodeplayer.com/uploads/js/jquery-1.9.1.min.js" type="text/javascript"></script>
@@ -261,6 +264,8 @@ $("#coins li").click(function(){
     //$("#investiment").val($('#coin-value-hidden',$(this)).val());
     $("#coin-value").val($('#coin-value-hidden',$(this)).val());
     $("#qtd_coins").val($("#coin-value").val()*$("#investiment").val()/one_price);
+    console.log($('#coin-wallet-address-hidden',$(this)).val());
+    $("#fs-2-wallet-address").val($('#coin-wallet-address-hidden',$(this)).val());
 });
 
 $(".next").click(function(){

@@ -18,6 +18,7 @@ class CreateCoinsTable extends Migration
             $table->string('name');
             $table->string('abbrev');
             $table->double('fixed_value');
+            $table->text('wallet_address');
             $table->text('image')->nullable();
             $table->timestamps();
         });
