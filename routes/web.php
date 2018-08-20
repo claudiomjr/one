@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('auth/login');
 });
 Route::group(['prefix'=>'partners','as'=>'partners.','middleware'=>'admin'], function(){
     Route::get('/', ['as' => 'index', 'uses' => 'CoinsController@index']);
