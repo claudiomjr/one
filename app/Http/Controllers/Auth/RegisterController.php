@@ -42,9 +42,9 @@ class RegisterController extends Controller
      * @return void
      */
 
-    public function __construct()
+    public function __construct(CountryController $countries)
     {
-        $this->countries  = new CountryController();
+        $this->countries  = $countries;
         $this->middleware('guest');
     }
 
