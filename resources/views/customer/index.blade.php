@@ -22,6 +22,7 @@
 					      <th scope="col">Email</th>
 					      <th scope="col">Country</th>
 					      <th scope="col">Status</th>
+					      <th scope="col">Document</th>
 					    </tr>
 					  </thead>
 					  <tbody>
@@ -31,6 +32,7 @@
 					      <td>{{Auth::user()->email}}</td>
 					      <td>{{Auth::user()->country->name}}</td>
 					      <td>{{Auth::user()->status->name}}</td>
+					      <td>{{Auth::user()->document_path}}</td>
 					    </tr>
 					    <tr>
 					  </tbody>
