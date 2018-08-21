@@ -42,9 +42,8 @@ class RegisterController extends Controller
      * @return void
      */
 
-    public function __construct(CountryController $countries)
+    public function __construct()
     {
-        $this->countries  = $countries;
         $this->middleware('guest');
     }
 
@@ -81,6 +80,7 @@ class RegisterController extends Controller
     protected function register(Request $request)
     {
         if ($request->isMethod('get')) {
+            $this->countries  = new CountryController();
             $countries = $this->countries->show();
             return view('auth/register',compact('countries'));
         }
