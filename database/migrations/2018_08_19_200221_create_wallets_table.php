@@ -13,7 +13,6 @@ class CreateWalletsTable extends Migration
      */
     public function up()
     {
-        Schema::dropIfExists('wallets');
         Schema::create('wallets', function (Blueprint $table) {
             $table->increments('id');
             $table->text('address');

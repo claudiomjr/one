@@ -14,9 +14,9 @@ class CoinsController extends Controller
      */
     public function index()
     {
-        return "ok";
+        return view('customer/index');
     }
-    public function donate()
+    public function payment_form()
     {
         $coins = Coins::all();
         $one_share = array(
@@ -24,7 +24,7 @@ class CoinsController extends Controller
             'name' =>'One',
             'image'=> 'https://one-fund.io/wp-content/uploads/2018/08/oneshare64x64.png',
         );
-        return view('partners/donate',compact('coins','one_share'));
+        return view('customer/payment-form',compact('coins','one_share'));
     }
     /**
      * Show the form for creating a new resource.

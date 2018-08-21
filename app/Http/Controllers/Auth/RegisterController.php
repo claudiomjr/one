@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\User;
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\CountryController;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
@@ -27,6 +28,7 @@ class RegisterController extends Controller
 
     use RegistersUsers;
 
+    private $countries;
     /**
      * Where to redirect users after registration.
      *
@@ -39,8 +41,10 @@ class RegisterController extends Controller
      *
      * @return void
      */
+
     public function __construct()
     {
+        $this->countries  = new CountryController();
         $this->middleware('guest');
     }
 
@@ -52,14 +56,22 @@ class RegisterController extends Controller
      */
     protected function validator(array $data)
     {   
-        return Validator::make($data, ['name'=>'required']);
-       //  return Validator::make($data, [
-        //     'name' => 'required|string|max:255',
-        //     'email' => 'required|string|email|max:255|unique:users',
-        //     'password' => 'required|string|min:6|confirmed',
-        //]);
+        //return Validator::make($data, ['name'=>'required']);
+        return Validator::make($data, [
+            'fullname'     => 'required|string|max:255',
+            'email'    => 'required|string|email|max:255|unique:users',
+            'password' => 'required|string|min:6|confirmed',
+            'document_path' => 'mimes:jpeg,png,bmp,tiff,pdf |max:4096',
+        ],messages());
     }
-
+    public function messages()
+        {
+            return [
+                'document_path.mimes' => 'Format not supported',
+                'document_path.required'  => 'The input is required',
+                'document_path.max'  => 'Max size is 4mb',
+            ];
+    }
     /**
      * Register new account.
      *
@@ -68,11 +80,11 @@ class RegisterController extends Controller
      */
     protected function register(Request $request)
     {
-         $validatedData = $request->validate([
-             'name'     => 'required|string|max:255',
-             'email'    => 'required|string|email|max:255|unique:users',
-             'password' => 'required|string|min:6|confirmed',
-         ]);
+        if ($request->isMethod('get')) {
+            $countries = $this->countries->show();
+            return view('auth/register',compact('countries'));
+        }
+
         try {
 
             $credentials['email']=$request->email;
@@ -82,16 +94,19 @@ class RegisterController extends Controller
             $path_img = 'uploads/profile_images/'.$now;
             $request->document_path->storeAs('uploads/profile_images/', $now);
             $user = User::create([
-                'name' => $request->name,
+                'fullname' => $request->fullname,
                 'email' => $request->email,
                 'password' => Hash::make($request->password),
                 'document_path' => $path_img,
                 'date_of_birth' => $request->date_of_birth,
+                'country_id' => $request->country_id,
                 'active' => false,
+                'user_status_id' => 1,//Submitted
             ]);
                 if (Auth::attempt(['email' => $credentials['email'], 'password' => $credentials['password']])) {
                     // The user is being remembered...
-                    return redirect()->intended('/home');
+                   // $user->Auth::user();
+                    return redirect()->intended('customer/index',compact('user'));
                 }else{
                     return redirect()->intended('/login');
                 }

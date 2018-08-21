@@ -5,21 +5,32 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Register') }}</div>
+                <div class="card-header">{{ __('whitelist for the One Share ICO') }} - basic information for the KYC - Know Your Customers</div>
 
                 <div class="card-body">
+                    <div>
+                        <div class="alert alert-info" role="alert">
+  <h4 class="alert-heading">Important informations</h4>
+  <p>Only investors who register for the whitelist and have their registration approved can participate in the ICO of One Share.</p>
+  <p>Some countries ban their citizens from participating in ICO: learn more before investing. <a href="https://www.bitcoinmarketjournal.com/ico-regulations/" class="text-info">Read More</a></p>
+<p>
+
+KYC is necessary to avoid future problems with regulation of our activities or to list One Share in some exchanges that require.</p>
+<p>
+After registering for the whitelist, we highly recommend you to register for the ONE FORUM with the same email registered here. <a href="https://forum.one-fund.io">Read More</a></div>
+                    </div>
                     <form method="POST" action="{{ route('register') }}" aria-label="{{ __('Register') }}" enctype="multipart/form-data">
                         @csrf
 
                         <div class="form-group row">
-                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
+                            <label for="fullname" class="col-md-4 col-form-label text-md-right">{{ __('Full Name') }}</label>
 
                             <div class="col-md-6">
-                                <input id="name" type="text" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" name="name" value="{{ old('name') }}" required autofocus>
+                                <input id="fullname" type="text" class="form-control{{ $errors->has('fullname') ? ' is-invalid' : '' }}" name="fullname" value="{{ old('fullname') }}" required autofocus>
 
-                                @if ($errors->has('name'))
+                                @if ($errors->has('fullname'))
                                     <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('name') }}</strong>
+                                        <strong>{{ $errors->first('fullname') }}</strong>
                                     </span>
                                 @endif
                             </div>
@@ -54,10 +65,36 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="document_path" class="col-md-4 col-form-label text-md-right">{{ __('Document') }}</label>
+                            <label for="country" class="col-md-4 col-form-label text-md-right">{{ __('Country your live') }}</label>
 
                             <div class="col-md-6">
-                                <input type="file" name="document_path" id="document_path" class="form-control">
+                                <select class="form-control" id="country_id" name="country_id">
+                                    @foreach ($countries as $country)
+                                        <option value="{{$country->id}}">{{$country->name}}</option>
+                                    @endforeach
+                                </select>
+
+                                @if ($errors->has('country'))
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('country') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="document_path" class="col-md-4 col-form-label text-md-right">{{ __('Document with photo') }}</label>
+
+                            <div class="col-md-6">
+                                <input type="file" name="document_path" id="document_path" class="form-control" accept="image/*,application/pdf">
+                                <div class="alert alert-secondary" role="alert">
+                                  ex: Passport, national ID, Driver License,etc.
+                                </div> 
+                                @if ($errors->has('document_path'))
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('document_path') }}</strong>
+                                    </span>
+                                @endif
                             </div>
                         </div>
 

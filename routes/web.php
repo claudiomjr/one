@@ -14,14 +14,16 @@
 Route::get('/', function () {
     return view('auth/login');
 });
-Route::group(['prefix'=>'partners','as'=>'partners.','middleware'=>'admin'], function(){
+Route::group(['prefix'=>'customer','as'=>'customer.'], function(){
     Route::get('/', ['as' => 'index', 'uses' => 'CoinsController@index']);
     Route::get('index', ['as' => 'index', 'uses' => 'CoinsController@index']);
-    Route::get('donate', ['as' => 'donate', 'uses' => 'CoinsController@donate']);
+    Route::get('payment-form', ['as' => 'payment-form', 'uses' => 'CoinsController@payment_form'])->middleware(['customer']);
 });
 
+Route::get('/', 'HomeController@index')->name('home');
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/coins', 'CoinsController@show')->name('show');
 
 Auth::routes();
+Route::get('/register', 'Auth\RegisterController@register')->name('register');
 Route::post('/register', 'Auth\RegisterController@register')->name('register');

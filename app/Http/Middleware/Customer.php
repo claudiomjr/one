@@ -5,7 +5,7 @@ use Illuminate\Support\Facades\Auth;
 
 use Closure;
 
-class Admin
+class Customer
 {
     /**
      * Handle an incoming request.
@@ -16,8 +16,12 @@ class Admin
      */
     public function handle($request, Closure $next)
     {
-        if(Auth::user()->email=='luisclaudiomjr@gmail.com')
+       if(Auth::user()->status->name=='Approved'){
             return $next($request);
-        return redirect('/login');
+       }
+        elseif (Auth::user()->email=='luisclaudiomjr@gmail.com') {
+            return $next($request);
+        }
+        return redirect('/home');
     }
 }

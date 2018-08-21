@@ -210,6 +210,7 @@ body {
                     <input type="number" disabled name="coin-value" id="coin-value" placeholder="$00.0" value="0">
                    <label for="investiment" class="fs-title">Investment</label>
                     <input type="number" name="investiment" id="investiment" placeholder="00.01" required min="0.10" value="0.10" step="0.10">
+                    <div class="alert alert-info" role="alert">...</div>
                     <label for="qtd_coins" class="fs-title">Coins</label>
                     <input type="number" name="qtd_coins" id="qtd_coins" placeholder="0.01" required min="0.10" value="0.10" step="0.10" data-decimals="3" data-format="#.00" data-spinners="false">
         </ul>
