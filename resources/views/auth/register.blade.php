@@ -86,7 +86,7 @@ After registering for the whitelist, we highly recommend you to register for the
                             <label for="document_path" class="col-md-4 col-form-label text-md-right">{{ __('Document with photo') }}</label>
 
                             <div class="col-md-6">
-                                <input type="file" name="document_path" id="document_path" class="form-control" accept="image/*,application/pdf">
+                                <input type="file" name="document_path" id="document_path" class="form-control" accept="image/*,application/pdf" required>
                                 <div class="alert alert-secondary" role="alert">
                                   ex: Passport, national ID, Driver License,etc.
                                 </div> 
