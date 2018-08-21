@@ -106,13 +106,13 @@ class RegisterController extends Controller
                 if (Auth::attempt(['email' => $credentials['email'], 'password' => $credentials['password']])) {
                     // The user is being remembered...
                    // $user->Auth::user();
-                    return redirect()->intended('customer/index',compact('user'));
+                    return redirect()->route('customer/index',compact('user'));
                 }else{
-                    return redirect()->intended('/login');
+                    return redirect()->route('/login');
                 }
             }catch(Exception $e) {
                 echo 'Exceção capturada: ',  $e->getMessage(), "\n";
-            return redirect()->intended('/login');
+            return redirect()->route('/login');
         }       
     }
 
