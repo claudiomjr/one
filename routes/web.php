@@ -22,6 +22,7 @@ Route::group(['prefix'=>'customer','as'=>'customer.'], function(){
 Route::group(['prefix'=>'admin','as'=>'admin.','middleware'=> ['admin']], function(){
     Route::get('/', ['as' => 'index', 'uses' => 'AdminController@index']);
     Route::get('index', ['as' => 'index', 'uses' => 'AdminController@index']);
+    Route::get('document/{id}', ['as' => 'document', 'uses' => 'AdminController@getDocument']);
   });
 
 Route::get('/user/verify/{token}', 'Auth\RegisterController@verifyUser');

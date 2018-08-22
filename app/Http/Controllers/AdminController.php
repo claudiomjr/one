@@ -8,6 +8,8 @@ use Intervention\Image\ImageManagerStatic as Image;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\RegisterConfirmation;
 
+use Illuminate\Support\Facades\Storage;
+
 class AdminController extends Controller
 {
     public function index()
@@ -19,16 +21,12 @@ class AdminController extends Controller
         return view('admin.index',compact('users'));
     }
 
-  //   public function sendMail(){
-	 //    	$data = array('name'=>"Sam Jose", "body" => "Test mail");
-
-  //       	Mail::send('emails.user.register_confirmation', $data, function($message) {
-		// 	$message->to('pamella.mayarac@gmail.com', 'Artisans Web')->subject('Artisans Web Testing Mail');
-		// 	$message->from('luismiguel18br@gmail.com','luismiguel18br@gmail.com');
-		// 	echo "Email sended";
-		// });
-
-  //   	// $email = 'pamella.mayarac@gmail.com';
-  //   	// Mail::to($email)->send(new RegisterConfirmation($email));
-  //   }
+    public function getDocument($id){
+    	$user = User::findOrFail($id);
+    	if(Storage::exists($user->document_path)){
+	    			$content= Storage::download($user->document_path);
+	    			return $content;
+    	}
+    	return null;
+    }
 }

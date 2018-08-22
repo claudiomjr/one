@@ -27,8 +27,14 @@
 					      <td>{{$user->email}}</td>
 					      <td>{{$user->country->name}}</td>
 					      <td>{{$user->status->name}}</td>
-					      <td>{{$user->document_path}}</td>
-					      <td><img src="{{url($user->document_path) }}" width="50" height="50"></td>
+					      <td>
+					      	@if(!strpos($user->document_path,".pdf"))
+					      	<img src="{{ route('admin.document',$user->id)}}" width="50" height="50"/>
+					      	@else
+					      	<img src="https://cloudonix.io/wp-content/uploads/2018/05/pdf_download.jpg" width="50" height="50"/>
+					      	@endif
+					      </td>
+					      <td><a href="{{ route('admin.document',$user->id)}}" >DOWNLOAD</a></td>
 					    </tr>
 					    @endforeach
 					  </tbody>

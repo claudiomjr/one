@@ -13,9 +13,10 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
 use DateTime;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Http\File;
 use Illuminate\Support\Facades\Storage;
-use Illuminate\Support\Facades\Mail;
+
 
 class RegisterController extends Controller
 {
@@ -95,7 +96,7 @@ class RegisterController extends Controller
             'fullname'     => 'required|string|max:255|min:5',
             'email'    => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:6|confirmed',
-            'document_path' => 'mimes:jpeg,png,bmp,tiff,pdf |max:20096',
+            'document_path' => 'mimes:jpeg,png,bmp,tiff,pdf|max:1096',
         ]);
 
         try {
@@ -116,11 +117,15 @@ class RegisterController extends Controller
                 'user_status_id' => 1,//Submitted
                 'token'=>str_random(40),
             ]);
-            $directory = 'public/uploads/photos/id/'.$user->id;
-            $imageName = str_random(10).$image->getClientOriginalExtension();
-            $path_img = $image->move($directory, $imageName);
+            //$directory = 'public/uploads/photos/id/'.$user->id;
+            $directory = 'photos/id/'.$user->id;
+            $imageName = str_random(10).".".$image->getClientOriginalExtension();
+
+            Storage::putFileAs($directory, $image,$imageName);
+
+           // $path_img = $image->move($directory, $imageName);
             User::where('id', $user->id)
-                ->update(['document_path' => $directory.".".$imageName]);
+                ->update(['document_path' => $directory."/".$imageName]);
 
             if (Auth::attempt(['email' => $credentials['email'], 'password' => $credentials['password']])) {
                     //$user = User::findById('');

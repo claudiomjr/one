@@ -87,10 +87,11 @@ After registering for the whitelist, we highly recommend you to register for the
                             <label for="" class="col-md-4 col-form-label text-md-right">{{ __('Document with photo') }}</label>
 
                             <div class="col-md-6">
-                                <input type="file" name="document_path" id="document_path" class="form-control" accept="image/*,application/pdf" required>
+                                <input type="file" name="document_path" id="document_path" class="form-control{{ $errors->has('document_path') ? ' is-invalid' : '' }}" accept="image/*,application/pdf" required/>
                                 <!-- <div class="alert alert-secondary" role="alert">
                                   ex: Passport, national ID, Driver License,etc.
                                 </div> --> 
+                            
                                 @if ($errors->has('document_path'))
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $errors->first('document_path') }}</strong>
@@ -123,7 +124,7 @@ After registering for the whitelist, we highly recommend you to register for the
 
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-muted ">
+                                <button type="submit" class="btn btn-dark ">
                                     {{ __('Register') }}
                                 </button>
                             </div>

@@ -97,4 +97,5 @@ background: linear-gradient(to right, #2c3e50, #bdc3c7); /* W3C, IE 10+/ Edge, F
         </main>
     </div>
 </body>
+<div>
 </html>
