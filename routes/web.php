@@ -19,10 +19,12 @@ Route::group(['prefix'=>'customer','as'=>'customer.'], function(){
     Route::get('index', ['as' => 'index', 'uses' => 'CoinsController@index']);
     Route::get('payment-form', ['as' => 'payment-form', 'uses' => 'CoinsController@payment_form'])->middleware(['customer']);
 });
-Route::group(['prefix'=>'admin','as'=>'admin.','middleware'=>'admin'], function(){
+Route::group(['prefix'=>'admin','as'=>'admin.','middleware'=> ['admin']], function(){
     Route::get('/', ['as' => 'index', 'uses' => 'AdminController@index']);
     Route::get('index', ['as' => 'index', 'uses' => 'AdminController@index']);
   });
+
+Route::get('/user/verify/{token}', 'Auth\RegisterController@verifyUser');
 
 Route::get('/', 'HomeController@index')->name('home');
 Route::get('/home', 'HomeController@index')->name('home');
@@ -32,9 +34,6 @@ Auth::routes();
 Route::get('/register', 'Auth\RegisterController@register')->name('register');
 Route::post('/register', 'Auth\RegisterController@register')->name('register');
 
-Route::get('uploads/profile_images/{filename}', function ($filename)
-{
-	 $img = Image::make($filename)->resize(300, 200);
-
-    return $img->response('jpeg');
-});
+// Route::get('public/uploads/photos/id/{name}', function ($name) {
+//     return "<img src='localhost:8000/public/uploads/photos/id/".$name."'/>";
+// })->where('name', '(.*)');

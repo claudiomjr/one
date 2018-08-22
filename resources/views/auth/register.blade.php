@@ -1,10 +1,11 @@
 @extends('layouts.app')
 
 @section('content')
+
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div class="card">
+            <div class="card" style="background:#E9E4F0;">
                 <div class="card-header">{{ __('whitelist for the One Share ICO') }} - basic information for the KYC - Know Your Customers</div>
 
                 <div class="card-body">
@@ -54,7 +55,7 @@ After registering for the whitelist, we highly recommend you to register for the
                             <label for="date_of_birth" class="col-md-4 col-form-label text-md-right">{{ __('Date of Birth') }}</label>
 
                             <div class="col-md-6">
-                                <input id="date_of_birth" type="date" class="form-control{{ $errors->has('date_of_birth') ? ' is-invalid' : '' }}" name="date_of_birth" value="{{ old('date_of_birth') }}" required>
+                                <input id="date_of_birth" data-date-format="yyyy-mm-dd" type="text" data-provide="datepicker" class="form-control{{ $errors->has('date_of_birth') ? ' is-invalid' : '' }}" name="date_of_birth" value="{{ old('date_of_birth') }}" required>
 
                                 @if ($errors->has('date_of_birth'))
                                     <span class="invalid-feedback" role="alert">
@@ -83,13 +84,13 @@ After registering for the whitelist, we highly recommend you to register for the
                         </div>
 
                         <div class="form-group row">
-                            <label for="document_path" class="col-md-4 col-form-label text-md-right">{{ __('Document with photo') }}</label>
+                            <label for="" class="col-md-4 col-form-label text-md-right">{{ __('Document with photo') }}</label>
 
                             <div class="col-md-6">
                                 <input type="file" name="document_path" id="document_path" class="form-control" accept="image/*,application/pdf" required>
-                                <div class="alert alert-secondary" role="alert">
+                                <!-- <div class="alert alert-secondary" role="alert">
                                   ex: Passport, national ID, Driver License,etc.
-                                </div> 
+                                </div> --> 
                                 @if ($errors->has('document_path'))
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $errors->first('document_path') }}</strong>
@@ -132,5 +133,14 @@ After registering for the whitelist, we highly recommend you to register for the
             </div>
         </div>
     </div>
+<script type="text/javascript">
+
+    $('#date_of_birth .datepicker({  
+
+       format: 'yyyy-mm-dd',
+
+     });  
+
+</script>  
 </div>
 @endsection

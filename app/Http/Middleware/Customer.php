@@ -14,14 +14,15 @@ class Customer
      * @param  \Closure  $next
      * @return mixed
      */
-    public function handle($request, Closure $next)
+    public function handle($request, Closure $next,  $guard = null)
     {
-       if(Auth::user()->status->name=='Approved'){
-            return $next($request);
-       }
-        elseif (Auth::user()->email=='luisclaudiomjr@gmail.com') {
-            return $next($request);
+        if (Auth::guard($guard)->check()) {
+            if(Auth::user()->status->name=='Approved'){
+              return $next($request);
+            }
+            return redirect('/home');
+            // return redirect('/home');
         }
-        return redirect('/home');
+        return redirect('login');
     }
 }

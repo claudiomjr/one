@@ -14,7 +14,7 @@
                @endif
                  	
                 	
-                	<table class="table table-sm">
+                <!-- 	<table class="table table-bordered">
 					  <thead>
 					    <tr>
 					      <th scope="col">#</th>
@@ -32,11 +32,11 @@
 					      <td>{{Auth::user()->email}}</td>
 					      <td>{{Auth::user()->country->name}}</td>
 					      <td>{{Auth::user()->status->name}}</td>
-					      <td>{{Auth::user()->document_path}}</td>
+					      <td><img src="{{Auth::user()->document_path}}" width="50" height="50"></td>
 					    </tr>
 					    <tr>
 					  </tbody>
-					</table>
+					</table> -->
                 </div>
             </div>
         </div>

@@ -14,10 +14,15 @@ class Admin
      * @param  \Closure  $next
      * @return mixed
      */
-    public function handle($request, Closure $next)
+    public function handle($request, Closure $next, $guard = null)
     {
-        if(Auth::user()->email=='luisclaudiomjr@gmail.com')
-            return $next($request);
-        return redirect('/login');
+        if (Auth::guard($guard)->check()) {
+            if(Auth::user()->email=='luisclaudiomjr@gmail.com')
+                return $next($request);
+            return redirect('/login');
+            // return redirect('/home');
+        }
+        return redirect('login');
+
     }
 }

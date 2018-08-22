@@ -40,6 +40,7 @@ class CreateUsersTable extends Migration
             $table->foreign('country_id')->references('id')->on('countries');
             $table->unsignedInteger('user_status_id');
             $table->foreign('user_status_id')->references('id')->on('user_status');
+            $table->string('token');
             $table->rememberToken();
             $table->timestamps();
         });

@@ -2,7 +2,7 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-6">
+        <div class="col-md-12">
             <div class="card">
                 <div class="card-header">Model</div>
 
@@ -15,6 +15,7 @@
 					      <th scope="col">Email</th>
 					      <th scope="col">Country</th>
 					      <th scope="col">Status</th>
+					      <th scope="col">Urk</th>
 					      <th scope="col">Document</th>
 					    </tr>
 					  </thead>
@@ -26,7 +27,8 @@
 					      <td>{{$user->email}}</td>
 					      <td>{{$user->country->name}}</td>
 					      <td>{{$user->status->name}}</td>
-					      <td><img src="<?php echo asset("storage/app/{{$user->document_path}}")?>"></img></td>
+					      <td>{{$user->document_path}}</td>
+					      <td><img src="{{url($user->document_path) }}" width="50" height="50"></td>
 					    </tr>
 					    @endforeach
 					  </tbody>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\User;
+use App\Mail\WelcomeMail;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\CountryController;
 use Illuminate\Support\Facades\Hash;
@@ -12,6 +13,9 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
 use DateTime;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\File;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Mail;
 
 class RegisterController extends Controller
 {
@@ -53,29 +57,32 @@ class RegisterController extends Controller
      * @param  array  $data
      * @return \Illuminate\Contracts\Validation\Validator
      */
-    protected function validator(array $data)
-    {   
-        //return Validator::make($data, ['name'=>'required']);
-        return Validator::make($data, [
-            'fullname'     => 'required|string|max:255',
-            'email'    => 'required|string|email|max:255|unique:users',
-            'password' => 'required|string|min:6|confirmed',
-            'document_path' => 'mimes:jpeg,png,bmp,tiff,pdf |max:4096',
-        ],messages());
-    }
-    public function messages()
-        {
-            return [
-                'document_path.mimes' => 'Format not supported',
-                'document_path.required'  => 'The input is required',
-                'document_path.max'  => 'Max size is 4mb',
-            ];
-    }
+    // protected function validator(array $data)
+    // {   
+    //     //return Validator::make($data, ['name'=>'required']);
+    //     return Validator::make($data, [
+    //         'fullname'     => 'required|string|max:255',
+    //         'email'    => 'required|string|email|max:255|unique:users',
+    //         'password' => 'required|string|min:6|confirmed',
+    //         'document_path' => 'mimes:jpeg,png,bmp,tiff,pdf |max:4096',
+    //     ],messages());
+    // }
+    // public function messages()
+    //     {
+    //         return [
+    //             'document_path.mimes' => 'Format not supported',
+    //             'document_path.required'  => 'The input is required',
+    //             'document_path.max'  => 'Max size is 4mb',
+    //         ];
+    // }
     /**
      * Register new account.
      *
      * @param Request $request
      * @return User
+     *Usado paara o registro e geração do token.
+     *Apos o registro o usuário é deslogado pela função
+     *registered que está neste Controller
      */
     protected function register(Request $request)
     {
@@ -84,15 +91,20 @@ class RegisterController extends Controller
             $countries = $this->countries->show();
             return view('auth/register',compact('countries'));
         }
+        $validatedData = $request->validate([
+            'fullname'     => 'required|string|max:255|min:5',
+            'email'    => 'required|string|email|max:255|unique:users',
+            'password' => 'required|string|min:6|confirmed',
+            'document_path' => 'mimes:jpeg,png,bmp,tiff,pdf |max:20096',
+        ]);
 
         try {
 
             $credentials['email']=$request->email;
             $credentials['password']=$request->password;
             $image = $request->file('document_path');
-            $now = "one".str_replace(" ","",str_replace(":","",now()))."share".str_replace(".","",microtime(true)).".".$request->document_path->getClientOriginalExtension();
-            $path_img = 'uploads/profile_images/'.$now;
-            $request->document_path->storeAs('uploads/profile_images/', $now);
+            $path_img = '';
+           // dd($s);
             $user = User::create([
                 'fullname' => $request->fullname,
                 'email' => $request->email,
@@ -102,11 +114,20 @@ class RegisterController extends Controller
                 'country_id' => $request->country_id,
                 'active' => false,
                 'user_status_id' => 1,//Submitted
+                'token'=>str_random(40),
             ]);
-                if (Auth::attempt(['email' => $credentials['email'], 'password' => $credentials['password']])) {
-                    // The user is being remembered...
-                   // $user->Auth::user();
-                    return redirect()->route('customer.index',compact('user'));
+            $directory = 'public/uploads/photos/id/'.$user->id;
+            $imageName = str_random(10).$image->getClientOriginalExtension();
+            $path_img = $image->move($directory, $imageName);
+            User::where('id', $user->id)
+                ->update(['document_path' => $directory.".".$imageName]);
+
+            if (Auth::attempt(['email' => $credentials['email'], 'password' => $credentials['password']])) {
+                    //$user = User::findById('');
+                    Mail::to($credentials['email'])->send(new WelcomeMail($user));
+                    Auth()->logout();
+                    return redirect()->route('login')->with('warning', 'You need to confirm your account. We have sent you an activation code, please check your email.');
+                    //return redirect()->route('customer.index',compact('user'));
                 }else{
                     return redirect()->route('login');
                 }
@@ -123,12 +144,38 @@ class RegisterController extends Controller
      * @return \App\User
      */
 
-    protected function create(array $data)
+    // protected function create(array $data)
+    // {
+    //     return User::create([
+    //         'name' => $data['name'],
+    //         'email' => $data['email'],
+    //         'password' => Hash::make($data['password']),
+    //     ]);
+    // }
+
+    public function verifyUser($token)
     {
-        return User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'password' => Hash::make($data['password']),
-        ]);
+        $verifyUser = User::where('token', $token)->first();
+        if(isset($verifyUser) ){
+
+            if(!$verifyUser->active) {
+                $verifyUser->active = true;
+                $verifyUser->save();
+                $status = "Your e-mail is verified. You can now login.";
+            }else{
+                $status = "Your e-mail is already verified. You can now login.";
+            }
+           // dd($status);
+        }else{
+            return redirect('/login')->with('warning', "Sorry your email cannot be identified.");
+        }
+ 
+        return redirect('/login')->with('status', $status);
+    }
+    //Usada assim que o usuário é registrado
+    protected function registered(Request $request, $user)
+    {
+        $this->guard()->logout();
+        return redirect('/login')->with('status', 'We sent you an activation code. Check your email and click on the link to verify.');
     }
 }

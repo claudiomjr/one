@@ -10,20 +10,38 @@
 
     <title>{{ config('app.name', 'Laravel') }}</title>
 
+
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
 
+
+  <script src="{{ asset('http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js')}}"></script>
+
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/js/bootstrap-datepicker.js"></script> -->
     <!-- Fonts -->
+
     <link rel="dns-prefetch" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet" type="text/css">
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
+ <!--  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/css/bootstrap-datepicker.css" rel="stylesheet"> -->
+
+<link href="{{ asset('https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/css/bootstrap-datepicker.css') }}" media="all" rel="stylesheet" type="text/css" />
+
+  <script src="{{ asset('https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/js/bootstrap-datepicker.js')}}"></script>
+
+<!-- Social icons/   -->
+<link href="{{ asset('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css') }}" media="all" rel="stylesheet" type="text/css" />
 </head>
-<!-- <body style="background: url('https://one-fund.io/wp-content/uploads/2018/08/background1080.png') !important;
-background-repeat: no-repeat !important;
-background-size: 120% !important;"> -->
-<body>
+<body style="background: #bdc3c7;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #2c3e50, #bdc3c7);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #2c3e50, #bdc3c7); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+"> 
+<!-- <body> -->
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-dark bg-dark navbar-laravel">
             <div class="container">
