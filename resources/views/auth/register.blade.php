@@ -135,12 +135,12 @@ After registering for the whitelist, we highly recommend you to register for the
         </div>
     </div>
 <script type="text/javascript">
+$( "#date_of_birth" ).datepicker({ dateFormat: 'yyyy-mm-dd' });
+    // $('#date_of_birth .datepicker({  
 
-    $('#date_of_birth .datepicker({  
+    //    format: 'yyyy-mm-dd',
 
-       format: 'yyyy-mm-dd',
-
-     });  
+    //  });  
 
 </script>  
 </div>
