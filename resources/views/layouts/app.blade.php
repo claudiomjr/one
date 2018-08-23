@@ -97,5 +97,119 @@ background: linear-gradient(to right, #2c3e50, #bdc3c7); /* W3C, IE 10+/ Edge, F
         </main>
     </div>
 </body>
-<div>
+<!-- Footer -->
+<footer class="page-footer font-small blue pt-4">
+    <style type="text/css">
+        @import url(https://fonts.googleapis.com/css?family=Lato);
+@import url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.css);
+
+.footer-social-icons {
+    width: 350px;
+    display:block;
+    margin: 0 auto;
+}
+.social-icon {
+    color: #fff;
+}
+ul.social-icons {
+    margin-top: 10px;
+}
+.social-icons li {
+    vertical-align: top;
+    display: inline;
+    height: 100px;
+}
+.social-icons a {
+    color: #fff;
+    text-decoration: none;
+}
+.fa-telegram {
+    padding:10px 14px;
+    -o-transition:.5s;
+    -ms-transition:.5s;
+    -moz-transition:.5s;
+    -webkit-transition:.5s;
+    transition: .5s;
+    background-color: #322f30;
+}
+.fa-telegram:hover {
+    background-color: #0E92D7;
+}
+.fa-twitter {
+    padding:10px 12px;
+    -o-transition:.5s;
+    -ms-transition:.5s;
+    -moz-transition:.5s;
+    -webkit-transition:.5s;
+    transition: .5s;
+    background-color: #322f30;
+}
+.fa-twitter:hover {
+    background-color: #00aced;
+}
+.fa-medium {
+    padding:10px 14px;
+    -o-transition:.5s;
+    -ms-transition:.5s;
+    -moz-transition:.5s;
+    -webkit-transition:.5s;
+    transition: .5s;
+    background-color: #322f30;
+}
+.fa-medium:hover {
+    background-color: #00B86E;
+}
+.fa-bitcoin {
+    padding:10px 14px;
+    -o-transition:.5s;
+    -ms-transition:.5s;
+    -moz-transition:.5s;
+    -webkit-transition:.5s;
+    transition: .5s;
+    background-color: #322f30;
+}
+.fa-bitcoin:hover {
+    background-color: #FFA82D;
+}
+.fa-reddit {
+    padding:10px 14px;
+    -o-transition:.5s;
+    -ms-transition:.5s;
+    -moz-transition:.5s;
+    -webkit-transition:.5s;
+    transition: .5s;
+    background-color: #322f30;
+}
+.fa-reddit:hover {
+    background-color: #FC0400;
+}
+.fa-comments {
+    padding:10px 9px;
+    -o-transition:.5s;
+    -ms-transition:.5s;
+    -moz-transition:.5s;
+    -webkit-transition:.5s;
+    transition: .5s;
+    background-color: #322f30;
+}
+.fa-comments:hover {
+    background-color: #c8c8c8;
+}
+</style>
+    <div class="footer-copyright text-center py-0" style="position: fixed;bottom: 0px; width: 100%; color: white; text-align: center;"> 
+        <nav class="navbar navbar-expand-md navbar-success bg-secondary navbar-laravel">
+        <div class="footer-social-icons">
+            <ul class="social-icons">
+                <li><a href="https://twitter.com/OneshareO" target="_blank" class="social-icon"> <i class="fa fa-twitter"></i></a></li>                             
+                <li><a href="https://medium.com/@oneshareofficial" target="_blank" class="social-icon"> <i class="fa fa-medium"></i></a></li>
+                <li><a href="https://bitcointalk.org/index.php?action=profile;u=2340013;sa=summary" target="_blank" class="social-icon"> <i class="fa fa-bitcoin"></i></a></li>
+                <li><a href="https://www.reddit.com/user/one_share" target="_blank" class="social-icon"> <i class="fa fa-reddit"></i></a></li>
+                <li><a href="https://forum.one-fund.io" target="_blank" class="social-icon"> <i class="fa fa-comments"></i></a></li>
+                <li><a href="https://t.me/onefund" target="_blank" class="social-icon" alt="Telegram"> <i class="fa fa-telegram"></i></a></li> 
+            </ul>
+        </div>
+        </nav>
+    </div>
+
+</footer>
 </html>

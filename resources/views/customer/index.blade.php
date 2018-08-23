@@ -40,27 +40,7 @@
                 </div>
                 <div class="card-footer" style="float: right !important;">
 
-					<div class="btn-group" style="i:padding: 10px !important;">
-						<!-- <a href="https://twitter.com/OneshareO" target="_blank">
-							<i class="fa fa-facebook-square" style="font-size:36px"></i>
-						</a> -->
-						<a href="https://twitter.com/OneshareO" target="_blank">
-							<i class="fa fa-twitter-square" style="font-size:36px;padding-right: 10px;"></i>
-						</a>
-						<a href="https://medium.com/@oneshareofficial" target="_blank">
-							<i class="fa fa-medium" style="font-size:36px;padding-right: 10px;"></i>
-						</a>
-						<a href="https://t.me/onefund" target="_blank">
-							<i class="fa fa-telegram" style="font-size:36px;padding-right: 10px;"></i>
-						</a>
-
-						<a href="https://bitcointalk.org/index.php?action=profile;u=2340013;sa=summary" target="_blank">
-							<i class="fa fa-bitcoin" style="font-size:36px;padding-right: 10px;"></i>
-						</a>
-						<a href="https://www.reddit.com/user/one_share" target="_blank">
-							<i class="fa fa-reddit" style="font-size:36px;padding-right: 10px;"></i>
-						</a>
-					</div>
+					
                 </div>
             </div>
         </div>

@@ -9,6 +9,7 @@
     <link href='https://fonts.googleapis.com/css?family=Work+Sans:300,400,500,600,700' rel="stylesheet">
     <link href='https://fonts.googleapis.com/css?family=Quicksand:300,400,700' rel="stylesheet">
     <!-- <![endif]-->
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <title>One Share</title>
 
@@ -163,9 +164,12 @@
             <td align="center">
                 <table border="0" align="center" width="590" cellpadding="0" cellspacing="0" class="container590">
                     <tr>
-
+                        <!-- <td align="center" class="section-img">
+                            <a href="" style=" border-style: none !important; display: block; border: 0 !important;"><img src="https://one-fund.io/wp-content/uploads/2018/08/background1080.png" style="display: block; width: 420px;" width="480" border="0" alt="" /></a>
+                        </td> -->
+                        
                         <td align="center" class="section-img">
-                            <a href="" style=" border-style: none !important; display: block; border: 0 !important;"><img src="https://one-fund.io/wp-content/uploads/2018/08/background1080-1024x576.png" style="display: block; width: 590px;" width="590" border="0" alt="" /></a>
+                            <a href="" style=" border-style: none !important; display: block; border: 0 !important;"><img src="https://one-fund.io/wp-content/uploads/2018/08/2.png" style="display: block; width: 400px;" width="480" border="0" alt="" /></a>
                         </td>
                     </tr>
                     <tr>
@@ -177,7 +181,7 @@
 
                             <div style="line-height: 35px">
 
-                                WELCOME TO <span style="color: #27253b;">ONE SHARE</span>
+                                Welcome aboard the ICO of<p>ONE SHARE</p>
 
                             </div>
                         </td>
@@ -185,13 +189,15 @@
 
                     <tr>
                         <td align="center">
-                            <table border="0" width="400" align="center" cellpadding="0" cellspacing="0" class="container590">
+                            <table border="0" width="420" align="center" cellpadding="0" cellspacing="0" class="container590">
                                 <tr>
                                     <td align="center" style="color: #888888; font-size: 16px; font-family: 'Work Sans', Calibri, sans-serif; line-height: 24px;">
                                         </br>
-                                        <h2>Hi, {{$user['fullname']}}</h2>
+                                        <p>Hi, {{$user['fullname']}}</p>
                                         </br>
-                                          <p> Please click on the below link to verify your email account
+                                          <p> 
+                                            You're almost done aboard the ICO of the ONE SHARE</p>
+                                            <p>Please click the link below to verify your email
                                           </p>
                                     </td>
                                 </tr>
@@ -202,10 +208,18 @@
                                     <td align="center" style="color: #27253b; font-size: 14px; font-family: 'Work Sans', Calibri, sans-serif; line-height: 26px;">
 
 
-                                        <div style="line-height: 26px; background-color: #27253B">
+                                        <div style="line-height: 26px; background-color: #2A3A4D">
                                             <a href="{{url('user/verify', $user->token)}}" class="btn" style="color: #888888; text-decoration: none;">Verfy Email</a>
                                         </div>
                                     </td>
+                                </tr>
+                                <tr>
+                                    <td align="center" style="color: #888888; font-size: 14px; font-family: 'Work Sans', Calibri, sans-serif; line-height: 24px;">
+                                        <p><i>One Share, An Enterprise Company,A Token To Share Gains</i></p>
+                                    </td>
+
+                                </tr>
+                                    
                                 </tr>
                                  <tr>
                                     <td height="30" style="font-size: 10px; line-height: 10px;">&nbsp;</td>
@@ -218,59 +232,6 @@
             </td>
         </tr>
 
-    </table>
-    <!-- end section -->
-
-    <!-- contact section -->
-    <table border="0" width="100%" cellpadding="0" cellspacing="0" bgcolor="ffffff" class="bg_color">
-
-        <tr>
-            <td align="center">
-                <table border="0" align="center" width="590" cellpadding="0" cellspacing="0" class="container590 bg_color">
-
-                    <tr>
-                        <td>
-                            <table border="0" width="300" align="left" cellpadding="0" cellspacing="0" style="border-collapse:collapse; mso-table-lspace:0pt; mso-table-rspace:0pt;" class="container590">
-
-                                <tr>
-                                    <!-- logo -->
-                                    <td align="left">
-                                        <a style="display: block; border-style: none !important; border: 0 !important;" href="https://one-fund.io"><img width="200" border="0" style="display: block; width: 80px;" src="https://one-fund.io/wp-content/uploads/ct-logos/logo_1eac2791cb5196a7a29a21c218acc087_1x.png" alt="" /></a>
-                                    </td>
-                                </tr>
-                            </table>
-
-                            <table border="0" width="200" align="right" cellpadding="0" cellspacing="0" style="border-collapse:collapse; mso-table-lspace:0pt; mso-table-rspace:0pt;" class="container590">
-
-                                <tr>
-                                    <td>
-                                        <table border="0" align="right" cellpadding="0" cellspacing="0">
-                                            <tr>
-                                                <td>
-                                                    <a href="https://www.facebook.com/mdbootstrap" style="display: block; border-style: none !important; border: 0 !important;"><img width="24" border="0" style="display: block;" src="http://i.imgur.com/Qc3zTxn.png" alt=""></a>
-                                                </td>
-                                                <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
-                                                <td>
-                                                    <a href="https://twitter.com/MDBootstrap" style="display: block; border-style: none !important; border: 0 !important;"><img width="24" border="0" style="display: block;" src="http://i.imgur.com/RBRORq1.png" alt=""></a>
-                                                </td>
-                                                <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
-                                                <td>
-                                                    <a href="https://plus.google.com/u/0/b/107863090883699620484/107863090883699620484/posts" style="display: block; border-style: none !important; border: 0 !important;"><img width="24" border="0" style="display: block;" src="http://i.imgur.com/Wji3af6.png" alt=""></a>
-                                                </td>
-                                            </tr>
-                                             <tr>
-                                                <td height="30" style="font-size: 10px; line-height: 10px;">&nbsp;</td>
-                                            </tr>
-                                        </table>
-                                    </td>
-                                </tr>
-
-                            </table>
-                        </td>
-                    </tr>
-                </table>
-            </td>
-        </tr>
     </table>
     <!-- end section -->
 

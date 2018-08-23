@@ -29,4 +29,14 @@ class AdminController extends Controller
     	}
     	return null;
     }
+    public function email(){
+    	try{
+	    	$user = User::findOrFail(3);
+	    	Mail::to($user->email)->send(new WelcomeMail($user));
+	    	return "Mail sended to: ".$user->email;
+    	}catch(Exception $e){
+    		echo 'Exceção capturada: ',  $e->getMessage(), "\n";
+    		return "Erro ao enviar.";
+    	}
+    }
 }

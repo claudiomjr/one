@@ -35,6 +35,7 @@ Auth::routes();
 Route::get('/register', 'Auth\RegisterController@register')->name('register');
 Route::post('/register', 'Auth\RegisterController@register')->name('register');
 
+Route::get('/email','AdminController@email');
 // Route::get('public/uploads/photos/id/{name}', function ($name) {
 //     return "<img src='localhost:8000/public/uploads/photos/id/".$name."'/>";
 // })->where('name', '(.*)');
