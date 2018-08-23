@@ -55,7 +55,12 @@ background: linear-gradient(to right, #2c3e50, #bdc3c7); /* W3C, IE 10+/ Edge, F
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
-
+                        <li class="nav-item">
+                            <a class="nav-link" target="_blank" href="https://one-fund.io/">ICO Site</a>
+                        </li>
+                       <li class="nav-item">
+                            <a class="nav-link" target="_blank" href="https://forum.one-fund.io/">Forum</a>
+                        </li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->

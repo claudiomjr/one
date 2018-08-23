@@ -30,7 +30,7 @@ class WelcomeMail extends Mailable
      */
     public function build()
     {
-        return $this->view('emails.user.register_confirmation');
+        return $this->view('emails.user.register_confirmation')->subject('Confirm your Email!');
     }
 }
  

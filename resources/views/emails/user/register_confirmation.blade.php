@@ -169,7 +169,7 @@
                         </td> -->
                         
                         <td align="center" class="section-img">
-                            <a href="" style=" border-style: none !important; display: block; border: 0 !important;"><img src="https://one-fund.io/wp-content/uploads/2018/08/2.png" style="display: block; width: 400px;" width="480" border="0" alt="" /></a>
+                            <a href="" style=" border-style: none !important; display: block; border: 0 !important;"><img src="https://one-fund.io/wp-content/uploads/2018/08/2.png" style="display: block; width: 380px;" width="480" border="0" alt="" /></a>
                         </td>
                     </tr>
                     <tr>
@@ -196,7 +196,7 @@
                                         <p>Hi, {{$user['fullname']}}</p>
                                         </br>
                                           <p> 
-                                            You're almost done aboard the ICO of the ONE SHARE</p>
+                                            You're almost done</p>
                                             <p>Please click the link below to verify your email
                                           </p>
                                     </td>
