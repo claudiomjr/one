@@ -13,7 +13,7 @@
                         <div class="alert alert-info" role="alert">
   <h4 class="alert-heading">Important informations</h4>
   <p>Only investors who register for the whitelist and have their registration approved can participate in the ICO of One Share.</p>
-  <p>Some countries ban their citizens from participating in ICO: learn more before investing. <a href="https://www.bitcoinmarketjournal.com/ico-regulations/" class="text-info">Read More</a></p>
+  <p class="text-danger"><strong>Some countries ban their citizens from participating in ICO: learn more before investing. <a href="https://www.bitcoinmarketjournal.com/ico-regulations/" class="text-info">Read More</a></strong></p>
 <p>
 
 KYC is necessary to avoid future problems with regulation of our activities or to list One Share in some exchanges that require.</p>
@@ -66,7 +66,7 @@ After registering for the whitelist, we highly recommend you to register for the
                         </div>
 
                         <div class="form-group row">
-                            <label for="country" class="col-md-4 col-form-label text-md-right">{{ __('Country your live') }}</label>
+                            <label for="country" class="col-md-4 col-form-label text-md-right">{{ __('Country where you live') }}</label>
 
                             <div class="col-md-6">
                                 <select class="form-control" id="country_id" name="country_id">
@@ -121,10 +121,16 @@ After registering for the whitelist, we highly recommend you to register for the
                                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
                             </div>
                         </div>
-
+                        <div class="form-group row">
+                            <label for="" class="col-md-4 col-form-label text-md-right"></label>
+                            <div class="col-md-6">
+                                <input type="checkbox" class="form-check-input" id="chkaccept">
+                                <label class="form-check-label" for="chkaccept">I read and agree to the <span><a href="https://one-fund.io/wp-content/uploads/2018/08/oneshare-token-White-Paper.pdf" target="_blank">terms of service</a></span> </label>
+                          </div>
+                        </div>
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-dark ">
+                                <button type="submit" id="bntsubmit" class="btn btn-dark" disabled>
                                     {{ __('Register') }}
                                 </button>
                             </div>
@@ -134,14 +140,18 @@ After registering for the whitelist, we highly recommend you to register for the
             </div>
         </div>
     </div>
-<script type="text/javascript">
-$( "#date_of_birth" ).datepicker({ dateFormat: 'yyyy-mm-dd' });
-    // $('#date_of_birth .datepicker({  
-
-    //    format: 'yyyy-mm-dd',
-
-    //  });  
-
-</script>  
 </div>
+<script>
+ $( "#date_of_birth" ).datepicker({ dateFormat: 'yyyy-mm-dd' });
+
+$(function() {
+    $('#chkaccept').change(function() {
+        if(!$("#chkaccept").prop("checked")){
+            $('#bntsubmit').prop("disabled",true);
+        }else{
+            $('#bntsubmit').prop("disabled",false);
+        }
+    });
+});
+</script>  
 @endsection

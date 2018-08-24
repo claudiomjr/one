@@ -37,15 +37,15 @@
 <!-- Social icons/   -->
 <link href="{{ asset('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css') }}" media="all" rel="stylesheet" type="text/css" />
 </head>
-<body style="background: #bdc3c7;  /* fallback for old browsers */
-background: -webkit-linear-gradient(to right, #2c3e50, #bdc3c7);  /* Chrome 10-25, Safari 5.1-6 */
-background: linear-gradient(to right, #2c3e50, #bdc3c7); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+<body style="background: #bdc3c7; 
+background: -webkit-linear-gradient(to right, #2c3e50, #bdc3c7); 
+background: linear-gradient(to right, #2c3e50, #bdc3c7); 
 "> 
 <!-- <body> -->
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-dark bg-dark navbar-laravel">
             <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
+                <a class="navbar-brand" href="https://one-fund.io">
                     {{ config('app.name', 'Laravel') }}
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
@@ -55,11 +55,11 @@ background: linear-gradient(to right, #2c3e50, #bdc3c7); /* W3C, IE 10+/ Edge, F
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
-                        <li class="nav-item">
+                 <!--        <li class="nav-item">
                             <a class="nav-link" target="_blank" href="https://one-fund.io/">ICO Site</a>
-                        </li>
+                        </li> -->
                        <li class="nav-item">
-                            <a class="nav-link" target="_blank" href="https://forum.one-fund.io/">Forum</a>
+                            <a class="nav-link" target="_blank" href="https://forum.one-fund.io/">One Forum</a>
                         </li>
                     </ul>
 

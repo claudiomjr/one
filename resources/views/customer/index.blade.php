@@ -37,12 +37,47 @@
 					    <tr>
 					  </tbody>
 					</table>
+
                 </div>
                 <div class="card-footer" style="float: right !important;">
-
 					
                 </div>
+
             </div>
+            <div style="height: 30px"></div>
+            <!-- <div class="row">
+			  <div class="col-sm-6">
+			    <div class="card">
+			      <div class="card-body">
+			        <h5 class="card-title">Special title treatment</h5>
+			        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+			        <a href="#" class="btn btn-primary">Go somewhere</a>
+			      </div>
+			    </div>
+			  </div>
+			  <div class="col-sm-6">
+			    <div class="card">
+			      <div class="card-body">
+			        <h5 class="card-title">Special title treatment</h5>
+			        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+			        <a href="#" class="btn btn-primary">Go somewhere</a>
+			      </div>
+			    </div>
+			  </div>
+			</div> -->
+			<div class="card">
+				  <div class="card-header">
+				    Next Steps
+				  </div>
+				  <div class="card-body">
+				    <p class="card-text">1. Register for ONE FORUM, all strategic discussions and voting will take place there.
+				    <a href="https://forum.one-fund.io/" target="_blank">(LINK)</a></p>
+				    <p class="card-text">2. Be part of our Airdrop and Bounty campaign and get free One Share Tokens.
+				    <a href="#" target="_blank">(LINK)</a></p>
+				    <p class="card-text">3. Wait until our public sale begins. Learn more how to get the best bonus for ICO.
+				    <a href="#" target="_blank">(LINK)</a></p>
+				  </div>
+			</div>
         </div>
     </div>
 </div>

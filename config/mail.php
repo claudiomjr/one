@@ -56,8 +56,8 @@ return [
     */
 
     'from' => [
-        'address' => env('MAIL_FROM_ADDRESS', ''),
-        'name' => env('MAIL_FROM_NAME', ''),
+        'address' => env('MAIL_FROM_ADDRESS', 'admin@one-fund.io'),
+        'name' => env('MAIL_FROM_NAME', 'One Share'),
     ],
 
     /*
@@ -86,7 +86,7 @@ return [
 
     'username' => env('MAIL_USERNAME','admin@one-fund.io'),
 
-    'password' => env('MAIL_PASSWORD','bghrxxqmifznulom'),
+    'password' => env('MAIL_PASSWORD','buzueqknbmtvihfn'),
 
     /*
     |--------------------------------------------------------------------------
